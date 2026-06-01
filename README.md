@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Golden Grill 🍔
+
+
+
+## Overview
+
+**Golden Grill** is a modern, premium restaurant web application built with **Next.js**, **Tailwind CSS**, and **TypeScript**. It showcases a sleek, glass‑morphism design with vibrant gradients, smooth micro‑animations, and a fully responsive layout. The app features a dynamic navigation bar, an eye‑catching hero section, interactive menu previews, a shopping cart, and a checkout flow.
+
+## Features
+
+- **Responsive UI** – Works flawlessly on mobile, tablet, and desktop.
+- **Glass‑morphism & Dark Mode** – Premium visual aesthetics with subtle translucency and gradient accents.
+- **Dynamic Menu** – Load menu categories and items from a JSON data source.
+- **Cart System** – Add, remove, and update items with a sliding drawer UI.
+- **Checkout Page** – Simple checkout flow with placeholder payment integration.
+- **Custom Cursor & Magnetic Effects** – Engaging micro‑interactions for a modern feel.
+- **Tailwind Integration** – Utility‑first styling with custom configurations.
+- **VS Code Settings** – Configured to ignore Tailwind `@tailwind` at‑rule warnings.
+
+## Tech Stack
+
+- **Framework**: Next.js (React) with TypeScript
+- **Styling**: Tailwind CSS (custom `tailwind.config.ts`)
+- **State Management**: React Context API (`CartContext`)
+- **Animations**: Framer Motion & CSS transitions
+- **Build & Deploy**: Vercel (or any Node.js hosting)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- **Node.js** (v18 or later)
+- **npm** (or `pnpm` / `yarn`)
+- **Git**
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repository
+git clone https://github.com/AREEBA-13/Golden_Grill.git
+cd Golden_Grill
+
+# Install dependencies
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Run the development server
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open <http://localhost:3000> in your browser to view the app. The site will hot‑reload as you edit files.
 
-## Learn More
+### Build for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build   # Generate an optimized production build
+npm start       # Start the production server
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure (high‑level)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+.
+├─ app/                 # Next.js route handlers and pages
+│   ├─ globals.css      # Global Tailwind styles
+│   ├─ layout.tsx       # Root layout with Navbar
+│   └─ ...
+├─ components/          # Reusable UI components
+│   ├─ Navbar.tsx
+│   ├─ Magnetic.tsx
+│   ├─ CustomCursor.tsx
+│   └─ ...
+├─ context/             # React context (CartContext)
+├─ public/              # Static assets (images, fonts)
+├─ .vscode/            # VS Code config to silence Tailwind warnings
+│   └─ settings.json
+├─ tailwind.config.ts   # Tailwind custom config
+├─ next.config.mjs      # Next.js configuration
+└─ README.md            # You are reading it!
+```
 
-## Deploy on Vercel
+## VS Code Configuration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The repository includes a `.vscode/settings.json` file that disables the "unknown at‑rule @tailwind" warnings introduced by the CSS language server:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```json
+{
+  "css.lint.unknownAtRules": "ignore"
+}
+```
+
+## Contributing
+
+Contributions are welcome! Feel free to open issues or submit pull requests.
+
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b my-feature`).
+3. Commit your changes (`git commit -m 'Add new feature'`).
+4. Push to your fork (`git push origin my-feature`).
+5. Open a Pull Request.
+
+## License
+
+This project is licensed under the **MIT License** – see the `LICENSE` file for details.
