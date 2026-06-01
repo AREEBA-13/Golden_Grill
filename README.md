@@ -5,6 +5,7 @@
 ## Overview
 
 **Golden Grill** is a modern, premium restaurant web application built with **Next.js**, **Tailwind CSS**, and **TypeScript**. It showcases a sleek, glass‑morphism design with vibrant gradients, smooth micro‑animations, and a fully responsive layout. The app features a dynamic navigation bar, an eye‑catching hero section, interactive menu previews, a shopping cart, and a checkout flow.
+Live demo: https://goldengrill.vercel.app/ (deployed on Vercel)
 
 ## Features
 
