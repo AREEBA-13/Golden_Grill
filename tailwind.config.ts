@@ -11,6 +11,24 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        charcoal: {
+          DEFAULT: "#171717",
+          darker: "#0C0C0C",
+          lighter: "#262626",
+        },
+        cream: {
+          DEFAULT: "#FEF3C7",
+          lighter: "#FFFDF6",
+          darker: "#F5E6B3",
+        },
+        brand: {
+          orange: "#EA580C",
+          gold: "#EAB308",
+        },
+      },
+      fontFamily: {
+        serif: ["var(--font-playfair)", "serif"],
+        sans: ["var(--font-jakarta)", "sans-serif"],
       },
     },
   },

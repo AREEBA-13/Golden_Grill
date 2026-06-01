@@ -2,26 +2,126 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #FEF3C7; /* Cream light mode background */
+    --foreground: #171717; /* Charcoal */
+    --font-serif: var(--font-playfair);
+    --font-sans: var(--font-jakarta);
+  }
+
+  .dark {
+    --background: #171717; /* Charcoal */
+    --foreground: #FFFDF6; /* Cream lighter text */
+  }
+
+  /* Default premium Charcoal Vibe (Dark mode first, except when explicitly toggled or customized) */
+  body {
+    color: #FFFDF6;
+    background-color: #0C0C0C; /* Super deep rich black-charcoal */
+    font-family: var(--font-sans), sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Hide default cursor on desktop for custom cursor experience (restoring standard beams on inputs) */
+  @media (min-width: 1024px) {
+    body, a, button, [role="button"] {
+      cursor: none !important;
+    }
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+::-webkit-scrollbar-track {
+  background: #0C0C0C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #EA580C; /* Burnt Orange */
+  border-radius: 9999px;
+  border: 2px solid #0C0C0C;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #EAB308; /* Gold */
+}
+
+/* Glassmorphism Preset */
+.glassmorphism {
+  background: rgba(23, 23, 23, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(254, 243, 199, 0.08);
+}
+
+.glassmorphism-light {
+  background: rgba(254, 243, 199, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(23, 23, 23, 0.08);
+}
+
+/* Custom Animations and Utilites */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
   }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.05);
+  }
+}
+
+.glow-bg {
+  position: relative;
+}
+
+.glow-bg::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.15) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+  animation: pulseGlow 8s infinite ease-in-out;
+}
+
+.text-stroke-gold {
+  -webkit-text-stroke: 1px rgba(234, 88, 12, 0.3);
+  color: transparent;
+}
+
+/* LED Matrix Marquee Animations */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite reverse;
+}
+
+/* Subtle Tactile Grain/Noise background overlay */
+.bg-noise {
+  background-image: radial-gradient(rgba(234, 88, 12, 0.15) 1px, transparent 0);
+  background-size: 24px 24px;
 }
